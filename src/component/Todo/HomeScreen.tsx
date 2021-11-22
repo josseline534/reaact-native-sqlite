@@ -13,7 +13,7 @@ import { openDatabase, transaction } from "../../libs/DB";
 
 import TodoScreen from "./TodoScreen";
 
-const db = openDatabase("dbPrueba.db");
+const db = openDatabase("dbMyTodos.db");
 
 const HomeScreen = (props: any) => {
     const [newTodo, setNewTodo] = React.useState("");
@@ -71,8 +71,13 @@ const HomeScreen = (props: any) => {
     const handlerChange = (event: any) => {
         setNewTodo(event);
     };
+
+    const galery = () => {
+        props.navigation.navigate("Galery");
+    };
     return (
         <View style={styles.container}>
+            <Button title='Galery' onPress={galery} color='#740001' />
             <TextInput
                 style={styles.textInput}
                 placeholder='Todo'
